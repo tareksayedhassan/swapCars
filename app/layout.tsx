@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/icon1.png",
-    apple: "/apple-icon.png",
+    icon: "/favicon-180x180.png",
+    shortcut: "/favicon-180x180.png",
+    apple: "/favicon-180x180.png",
   },
 
   openGraph: {

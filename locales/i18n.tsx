@@ -4,7 +4,7 @@ import en from "@/locales/en.json";
 import ar from "@/locales/ar.json";
 
 type Lang = "en" | "ar";
-type Dict = Record<string, any>;
+type Dict = Record<string, unknown>;
 
 const dictionaries: Record<Lang, Dict> = { en, ar };
 
