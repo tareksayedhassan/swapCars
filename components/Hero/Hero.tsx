@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -78,14 +77,13 @@ const trustItems = [
 
 export default function Hero() {
   const [paymentMode, setPaymentMode] = useState<"cash" | "monthly">("cash");
-  const [imageLoaded, setImageLoaded] = useState(true);
 
   return (
     <main className="overflow-hidden bg-[#fff7f5] text-[#251111] selection:bg-[#c04944]/20">
       <section
         dir="ltr"
         aria-labelledby="hero-heading"
-        className="relative isolate min-h-[calc(100vh-96px)] px-4 py-8 sm:px-6 lg:px-8 lg:py-12"
+        className="relative isolate min-h-[calc(100vh-96px)] overflow-hidden px-4 py-8 sm:px-6 lg:px-8 lg:py-12"
       >
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_78%_30%,rgba(192,73,68,0.24),transparent_28%),radial-gradient(circle_at_20%_18%,rgba(255,231,227,0.95),transparent_30%),linear-gradient(135deg,#fff7f5_0%,#fffaf8_42%,#f8e1dc_100%)]" />
         <div className="absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-[#c04944]/30 to-transparent" />
@@ -158,7 +156,7 @@ export default function Hero() {
                       setPaymentMode(option.value as "cash" | "monthly")
                     }
                     className={cn(
-                      "rounded-xl px-3 py-2.5 text-sm font-black transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c04944]/20",
+                      "rounded-xl px-3 py-2.5 text-sm font-black transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c04944]/25 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fff2f0]",
                       paymentMode === option.value
                         ? "bg-[#c04944] text-white shadow-[0_14px_30px_-16px_rgba(192,73,68,0.95)]"
                         : "text-[#7b625f] hover:bg-white hover:text-[#c04944]",
@@ -178,7 +176,7 @@ export default function Hero() {
                     <select
                       id={field.id}
                       name={field.id}
-                      className="h-12 w-full rounded-2xl border border-[#c04944]/14 bg-[#fffaf9] px-4 text-sm font-bold text-[#251111] shadow-inner shadow-[#c04944]/5 outline-none transition-all duration-300 hover:border-[#c04944]/28 focus:border-[#c04944]/60 focus:ring-4 focus:ring-[#c04944]/12"
+                      className="h-12 w-full rounded-2xl border border-[#c04944]/14 bg-[#fffaf9] px-4 text-sm font-bold text-[#251111] shadow-inner shadow-[#c04944]/5 outline-none transition-all duration-300 hover:border-[#c04944]/28 focus:border-[#c04944]/70 focus:bg-white focus:ring-4 focus:ring-[#c04944]/15"
                     >
                       {field.options.map((option) => (
                         <option
@@ -214,21 +212,14 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative order-2 min-h-[360px] sm:min-h-[460px] lg:min-h-[650px]">
-            <div className="absolute inset-x-2 top-8 bottom-8 rounded-[2.5rem] border border-white/22 bg-[radial-gradient(circle_at_63%_28%,rgba(255,202,196,0.24),transparent_30%),linear-gradient(140deg,#351615_0%,#170b0b_54%,#090606_100%)] shadow-[0_34px_90px_-42px_rgba(73,25,23,0.9)] lg:inset-x-0" />
-            <div className="absolute left-1/2 top-[45%] h-[25rem] w-[25rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c04944]/26 blur-3xl lg:h-[34rem] lg:w-[34rem]" />
-            <div className="absolute left-[50%] top-[47%] h-[18rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
-            <div className="absolute bottom-12 left-1/2 h-16 w-[82%] -translate-x-1/2 rounded-[100%] bg-black/70 blur-2xl lg:bottom-20" />
+          <div className="relative order-2 min-h-[360px] overflow-hidden sm:min-h-[460px] lg:min-h-[650px]">
+            <div className="absolute inset-x-2 bottom-8 top-8 rounded-[2rem] border border-white/22 bg-[radial-gradient(circle_at_63%_28%,rgba(255,202,196,0.24),transparent_30%),linear-gradient(140deg,#351615_0%,#170b0b_54%,#090606_100%)] shadow-[0_34px_90px_-42px_rgba(73,25,23,0.9)] sm:rounded-[2.5rem] lg:inset-x-0" />
+            <div className="absolute left-1/2 top-[45%] h-[22rem] w-[22rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c04944]/22 blur-3xl lg:h-[32rem] lg:w-[32rem]" />
+            <div className="absolute left-[50%] top-[47%] h-[16rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl lg:w-[32rem]" />
+            <div className="absolute bottom-12 left-1/2 h-14 w-[78%] -translate-x-1/2 rounded-[100%] bg-black/65 blur-2xl lg:bottom-20" />
 
-            <div className="relative h-full min-h-[360px] animate-[swapCarEnter_900ms_ease-out_both] sm:min-h-[460px] lg:min-h-[650px]">
-              {imageLoaded ? (
-                <CarModel />
-              ) : (
-                <div className="absolute inset-x-8 top-24 rounded-[2rem] border border-white/14 bg-white/10 p-8 text-center text-sm font-bold text-white/80 backdrop-blur-xl">
-                  {/* Replace /public/images/swap-car-hero-suv.png to restore the premium car visual. */}
-                  صورة السيارة غير متوفرة مؤقتا
-                </div>
-              )}
+            <div className="relative h-full min-h-[360px] animate-[swapCarEnter_900ms_ease-out_both] [isolation:isolate] sm:min-h-[460px] lg:min-h-[650px]">
+              <CarModel />
             </div>
 
             <div dir="rtl" className="pointer-events-none absolute inset-0">
@@ -239,14 +230,14 @@ export default function Hero() {
                   <div
                     key={badge.label}
                     className={cn(
-                      "absolute inline-flex items-center gap-2 rounded-2xl border border-white/16 bg-white/88 px-3 py-2 text-xs font-black text-[#3a2020] shadow-[0_22px_52px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl sm:px-4 sm:py-2.5 sm:text-sm",
+                      "absolute inline-flex max-w-[11rem] items-center gap-2 rounded-2xl border border-white/18 bg-white/90 px-3 py-2 text-xs font-black leading-5 text-[#3a2020] shadow-[0_18px_42px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl sm:max-w-none sm:px-4 sm:py-2.5 sm:text-sm",
                       badge.className,
                     )}
                     style={{
                       animation: `swapBadgeFloat 4.8s ease-in-out ${index * 0.35}s infinite`,
                     }}
                   >
-                    <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#c04944] text-white shadow-[0_12px_24px_-14px_rgba(192,73,68,0.95)]">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#c04944] text-white shadow-[0_12px_24px_-14px_rgba(192,73,68,0.95)]">
                       <Icon className="h-4 w-4" />
                     </span>
                     {badge.label}
