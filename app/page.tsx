@@ -1,7 +1,10 @@
 "use client";
 import Loading from "@/components/Custom/Loading";
 import Header from "@/components/Header/Header";
-import Hero from "@/components/Hero/Hero";
+import Brands from "@/components/Home/Brands";
+import CarsMostSearched from "@/components/Home/cars/CarsMostSearched";
+import Hero from "@/components/Home/Hero/Hero";
+import FinanceFlow from "@/components/Home/FinanceFlow";
 import React from "react";
 
 const Page = () => {
@@ -18,6 +21,9 @@ const Page = () => {
     <div className="min-h-screen ">
       <Header />
       <Hero />
+      <Brands />
+      <FinanceFlow />
+      <CarsMostSearched />
     </div>
   );
 };

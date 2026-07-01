@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/locales/i18n";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import ClientLayout from "./ClientComponent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -108,7 +113,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <I18nProvider>{children}</I18nProvider>
+        <I18nProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </I18nProvider>
       </body>
     </html>
   );
